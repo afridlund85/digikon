@@ -8,4 +8,4 @@ services:
     volumes:
       - ./src:/usr/share/nginx/html:ro
       - ./conf:/etc/nginx/conf.d
-      - /etc/letsencrypt/live/www.digikon.se:/etc/nginx/ssl/www.digikon.se
+      - /etc/letsencrypt:/etc/nginx/ssl
