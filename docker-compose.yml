@@ -1,8 +1,13 @@
 version: '2'
+
+volumes:
+  nodemodules:
+
 services:
   web:
-    image: nginx:1.11
+    build: .
     ports:
-      - 8080:80
+      - 80:3000
     volumes:
-      - ./src:/usr/share/nginx/html:ro
+      - .:/usr/src/app
+      - nodemodules:/usr/src/app/node_modules
