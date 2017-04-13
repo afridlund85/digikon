@@ -1,0 +1,52 @@
+html, body {
+  padding:0;
+  margin:0;
+}
+body {
+  background-color: red;
+}
+
+#app {
+  span {
+    background-color: orange;
+    padding:2em 0;
+    display: block;
+    position: relative;
+    overflow:hidden;
+  }
+}
+.content {
+  position: absolute;
+  width:100%;
+  top: 0;
+  opacity: 1;
+  transition: transform 500ms cubic-bezier(.5,-0.05,.25,1), opacity 500ms ease;
+}
+
+.content-enter {
+  opacity: 0.01;
+  transform: translateX(-100%);
+}
+
+.content-enter.content-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.content-leave {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.content-leave.content-leave-active {
+  opacity: 0.01;
+  transform: translateX(+100%);
+}
+
+.content-appear {
+  opacity: 0.01;
+}
+
+.content-appear.content-appear-active {
+  opacity: 1;
+}

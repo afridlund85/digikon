@@ -1,6 +1,7 @@
 const { resolve, join } = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 module.exports = {
   context: resolve(__dirname, 'app'),
@@ -37,13 +38,21 @@ module.exports = {
       {
         test: /\.(jpg|png|gif|svg|mp4)?$/,
         use: 'file-loader'
-      }
+      },
+      {
+       test: /\.scss$/,
+       use: ExtractTextPlugin.extract({
+         fallback: 'style-loader',
+         use: ['css-loader', 'sass-loader']
+       })
+     }
     ],
   },
 
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NamedModulesPlugin(),
+    new ExtractTextPlugin('style.css'),
     new HtmlWebpackPlugin({
       template: join(__dirname, 'app', 'index.html'),
       inject: 'body'

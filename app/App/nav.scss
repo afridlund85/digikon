@@ -1,0 +1,16 @@
+#nav {
+  margin:0;
+  padding:0;
+  background-color: green;
+  li {
+    display: inline-block;
+    a {
+      padding:1em 3em;
+      display: block;
+      text-decoration: none;
+      &:hover {
+        background-color: lime;
+      }
+    }
+  }
+}
